@@ -11,6 +11,7 @@ CREATE TABLE `atividades` (
   `id_usuario` INT NOT NULL,
   `nome` VARCHAR(200) NOT NULL,
   `descricao` VARCHAR(250) NOT NULL,
+  `data_atividade` DATE NOT NULL,
   `status` TINYINT(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

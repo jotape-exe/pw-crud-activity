@@ -3,7 +3,7 @@
 require 'config.php';
 
 //Função Update Incompleta(TEST)
-function update($pdo, $id, $nome = null, $descricao = null, $status = null) {
+function update($pdo, $id, $nome = null, $descricao = null, $status = null, $data_atividade = null) {
     $set = [];
 
     if ($nome !== null) {
@@ -16,6 +16,10 @@ function update($pdo, $id, $nome = null, $descricao = null, $status = null) {
 
     if ($status !== null) {
         $set[] = "status = :status";
+    }
+
+    if ($data_atividade !== null) {
+        $set[] = "data_atividade = :data_atividade";
     }
 
     if (count($set) === 0) {
@@ -38,6 +42,10 @@ function update($pdo, $id, $nome = null, $descricao = null, $status = null) {
 
     if ($status !== null) {
         $sql->bindValue(':status', $status);
+    }
+
+    if ($data_atividade !== null) {
+        $sql->bindValue(':data_atividade', $data_atividade);
     }
 
     $sql->execute();

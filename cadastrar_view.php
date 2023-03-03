@@ -35,17 +35,25 @@
         <form method="POST" action="cadastrar.php"  class="post-form">
             <h2>CADASTRAR ATIVIDADE</h2>
                 <div class="input-div">
-                    <label for="nome" class="label-dash">Nome:</label>
+                    <label for="nome" class="label-dash">Nome</label>
                     <input type="text" name="nome" id="nome">
                 </div>
                 <div class="input-div">
-                    <label for="descricao" class="label-dash">Descricao:</label>
-                    <input type="descricao" name="descricao" id="descricao" >
+                    <label for="descricao" class="label-dash">Descricao</label>
+                    <input type="text" name="descricao" id="descricao" >
+                </div> 
+
+                <div class="input-div">
+                    <label for="status" class="label-dash">Status</label>
+                    <select id="status" name="status">
+                        <option value="0" >Pendente</option> <!--<?= $atividade['status'] === '0' ? 'selected' : '' ?>--> 
+                        <option value="1" >Concluida</option> <!--<?= $atividade['status'] === '1' ? 'selected' : '' ?>--> 
+                    </select>
                 </div> 
                 <div class="input-div">
-                    <label for="status" class="label-dash">Status:</label>
-                    <input type="status" name="status" id="status" >
-                </div> 
+                    <label for="data_atividade" class="label-dash">Data</label>
+                    <input type="date" name="data_atividade" id="data_atividade">
+                </div>
             <input type="submit" value="SALVAR" class="nu-btn">
         </form>
       

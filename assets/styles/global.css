@@ -62,7 +62,7 @@ main{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 4rem 2rem;
+    padding: 1.4rem 1.4rem;
 }
 
 .post-form h2{
@@ -122,7 +122,7 @@ span{
     background-color: gainsboro;
     border: none;
     outline: none;
-    height: 6vh;
+    height: 4vh;
 }
 
 .input-div input:hover{
@@ -136,4 +136,18 @@ span{
 
 a{
     color: #000;
+}
+
+option{
+    outline: none;
+    background-color: #dddddd;
+}
+
+select{
+    outline: none;
+    height: 1.7rem;
+}
+
+.hidden{
+    display: none;
 }

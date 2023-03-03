@@ -46,12 +46,21 @@ if($sql->rowCount() > 0){
         </section>
         
         <div action="" class="post-form">
-            <h3>ATIVIDADES</h3>
+            <h3>ATIVIDADES
+                <?php
+                
+                $dataHj = new DateTime();
+                echo $dataHj->format('d-m-Y');
+
+                ?>
+            </h3>
+
             <table class="tabela" >
                 <tr class="linha-head">
                     <td id="id_user">id</td>
                     <td>Nome</td>
                     <td>Descricao</td>
+                    <td>Data</td>
                     <td>Status</td>
                     <td class="action">Action</td>
                 </tr>
@@ -60,6 +69,7 @@ if($sql->rowCount() > 0){
                     <td id="id_user"><?=$usuarioObj['id'];?></td>
                     <td><?=$usuarioObj['nome'];?></td>
                     <td><?=$usuarioObj['descricao'];?></td>
+                    <td><?=$usuarioObj['data_atividade'];?></td>
                     <td><?=$usuarioObj['status'];?></td>
                     <td>
                         <a href="atualizar_view.php?id=<?=$usuarioObj['id'];?>">
