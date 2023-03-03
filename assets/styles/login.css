@@ -1,0 +1,111 @@
+*{
+    position: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+main{
+    width: 100%;
+    height: 100vh;
+    background-color: #e2e2e275;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-form{
+    padding: 3rem 2rem;
+    border-radius: 1rem;
+    background-color: #fff;
+    height: 74vh;
+    width: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    box-shadow: 0 0 6px #00000041;
+}
+
+.login-form h3{
+    padding-top: 20px;
+    font-size: 1.6rem;
+}
+
+.input-div{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 14vh;
+    padding: .5rem;
+    justify-content: space-around;
+    font-size: 1.3rem;
+}
+
+.input-div label{
+    padding: .4rem;
+}
+
+.input-div input{
+    background-color: gainsboro;
+    border: none;
+    outline: none;
+    height: 6vh;
+}
+
+.input-div input:hover{
+    border-bottom: 2px solid #0077ff;
+}
+
+
+.login-form h3{
+    align-self: center;
+}
+
+.login-btn{
+    align-self: center;
+    height: 7vh;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    background-color: #0077ff;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    margin-top: 4vh;
+}
+
+.login-btn:hover{
+    background-color: #0160ce;
+}
+
+.validation{
+    margin-top: 5px;
+    padding: .5rem;
+    font-size: 1rem;
+    height: 8vh;
+    display: none;
+    color: #f00;
+    width: 100%;
+    background-color: rgba(255, 198, 198, 0.637);
+    justify-content: start;
+    align-items: center;
+}
+
+.validation h4{
+    margin-left: 9px;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+}
+
+
+.not-validation{
+    display: flex;
+}

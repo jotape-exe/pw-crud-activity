@@ -1,0 +1,51 @@
+.tabela{
+    width: 100%;
+    padding: 1rem;
+}
+
+.tabela tr{
+    height: 6vh;
+}
+
+.linha-head td{
+    height: 8vh;
+    border-bottom: 1px solid #000;
+    background-color: #414141;
+    padding: .4rem;
+    color: #fff;
+}
+
+.linha-type-one td{
+    background-color: #e4e4e4;
+    padding: .6rem;
+}
+
+.action{
+    width: 7vw;
+    padding-left: 10px;
+}
+
+.action-item{
+    cursor: pointer;
+}
+
+.edit{
+    margin-left: 6px;
+}
+
+.delete{
+    margin-left: 8px;
+}
+
+.delete:hover{
+    color: #0059ff;
+}
+
+.edit:hover{
+    color: #0059ff;;
+}
+
+#id_user{
+    text-align: center;
+    width: 4vw;
+}
