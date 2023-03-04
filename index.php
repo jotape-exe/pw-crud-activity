@@ -4,13 +4,7 @@ require 'getAtividadeUserByStatus.php';
 
 //Armazena as atividades do usuário
 $lista = [];
-/*
-$sql = "SELECT id, nome, descricao, status, DATE_FORMAT(data_atividade, '%d-%m-%Y') as data_atividade
-FROM atividades
-WHERE id_usuario = :user_id AND status = :status";
-$stmt = $pdo->prepare($sql);
-$stmt->execute(array(':user_id' => $user_id, ':status' => $status));
-*/
+
 if($sql->rowCount() > 0){
     //Aqui você deve cadastrar um usuário manualmente no MySQL para testar o método
     $lista = getAtividadeUserByStatus(1, 0);

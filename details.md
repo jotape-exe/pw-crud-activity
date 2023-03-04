@@ -4,6 +4,6 @@
 2. Acesse a pasta `db` e execute o código SQL presente nela para configurar o banco e as tabelas
 3. A função `postUsuario` não está presente neste projeto, então para testar algumas funcionalidades você deve fazê-lo manualmente no MySQL
 
-* Importante! *
+_Importante!_
 
-- Metodo `Atualizar` ainda esta em desenvolvimento, logo seu funcionamento apresenta falhas
+- Metodo `Atualizar` ainda está em desenvolvimento, logo seu funcionamento apresenta falhas

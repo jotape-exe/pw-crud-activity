@@ -15,8 +15,6 @@ $sql = $pdo->prepare('SELECT * FROM atividades WHERE id = :id');
 $sql->bindValue(':id', $id);
 $sql->execute();
 
-getAtividadeUserByStatus($user_id, $status);
-
 if (!$sql->rowCount()) {
     // Não encontrou a atividade com o ID informado
     header('Location: index.php');
@@ -32,19 +30,13 @@ if ($atividade['status'] == 1) {
     $status_texto = 'Pendente';
 }
 
-// Verifica se o formulário foi enviado
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Extrai os dados do formulário
-    $nome = filter_input(INPUT_POST, 'nome');
-    $descricao = filter_input(INPUT_POST, 'descricao');
-    $status = filter_input(INPUT_POST, 'status');
-    $data_atividade = filter_input(INPUT_POST, 'data_atividade');
+if (isset($_POST['id'])) {
+    // O formulário foi enviado, chama a função para atualizar a atividade
+    atualizarAtividade($pdo, $id);
 
-    // Atualiza os dados da atividade no banco
-    update($pdo, $id, $nome, $descricao, $status, $data_atividade);
-
-    $atividade = $sql->fetch(PDO::FETCH_ASSOC);
-
+    // Redireciona para a página inicial
+    header('Location: index.php');
+    exit;
 }
 
 ?>
@@ -86,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         <form method="POST" action="atualizar.php"  class="post-form">
             <h2>EDITAR ATIVIDADE</h2>
-            <input type="hidden" name="id" value="<?=$usuarioObj['id'];?>">
+            <input type="text" class="hidden" name="id" value="<?=$atividade['id'];?>">
                 <div class="input-div">
                     <label for="nome" class="label-dash">Nome</label>
                     <input type="text" name="nome" id="nome" value="<?= $atividade['nome'];?>">
@@ -97,16 +89,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div> 
                 <div class="input-div">
                     <label for="status" class="label-dash">Status</label>
+                    <input type="text" name="status" id="status">
+                    <!--
                     <select id="status" name="status">
                         <option value="<?=$status_texto;?>"><?= $status_texto;?></option>
                     </select>
+                    -->
                 </div> 
                 <div class="input-div">
-                    <label for="data_atvd" class="label-dash">Data</label>
-                    <input type="date" name="data_atvd" id="data_atvd" value="<?= $atividade['data_atividade'];?>">
+                    <label for="data_atividade" class="label-dash">Data</label>
+                    <input type="date" name="data_atividade" id="data_atividade" value="<?= $atividade['data_atividade'];?>">
                 </div>
             <input type="submit" value="ATUALIZAR" class="nu-btn">
         </form>
-      
     </main>
 </html>
