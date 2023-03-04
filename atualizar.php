@@ -4,6 +4,7 @@ require 'config.php';
 
 //Função Update Incompleta(TEST)
 function update($pdo, $id, $nome = null, $descricao = null, $status = null, $data_atividade = null) {
+
     $set = [];
 
     if ($nome !== null) {
@@ -26,6 +27,7 @@ function update($pdo, $id, $nome = null, $descricao = null, $status = null, $dat
         // Nenhum atributo foi informado para atualização
         return;
     }
+
 
     $setClause = implode(", ", $set);
 

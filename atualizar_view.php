@@ -15,6 +15,8 @@ $sql = $pdo->prepare('SELECT * FROM atividades WHERE id = :id');
 $sql->bindValue(':id', $id);
 $sql->execute();
 
+getAtividadeUserByStatus($user_id, $status);
+
 if (!$sql->rowCount()) {
     // Não encontrou a atividade com o ID informado
     header('Location: index.php');
@@ -40,11 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Atualiza os dados da atividade no banco
     update($pdo, $id, $nome, $descricao, $status, $data_atividade);
-
-    // Recarrega os dados da atividade atualizados do banco
-    $sql = $pdo->prepare('SELECT * FROM atividades WHERE id = :id');
-    $sql->bindValue(':id', $id);
-    $sql->execute();
 
     $atividade = $sql->fetch(PDO::FETCH_ASSOC);
 
