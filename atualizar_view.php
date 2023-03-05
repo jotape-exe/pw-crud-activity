@@ -10,6 +10,8 @@ if (!$id) {
     exit;
 }
 
+$id_usuario = filter_input(INPUT_GET, 'id_usuario');
+
 // Carrega os dados da atividade do banco
 $sql = $pdo->prepare('SELECT * FROM atividades WHERE id = :id');
 $sql->bindValue(':id', $id);
@@ -25,14 +27,14 @@ $atividade = $sql->fetch(PDO::FETCH_ASSOC);
 
 // Verifica o status e define o texto formatado correspondente
 if ($atividade['status'] == 1) {
-    $status_texto = 'Concluído';
+    $status_texto = 'Já Realizado';
 } else {
-    $status_texto = 'Pendente';
+    $status_texto = 'Não Realizado';
 }
 
 if (isset($_POST['id'])) {
     // O formulário foi enviado, chama a função para atualizar a atividade
-    atualizarAtividade($pdo, $id);
+    atualizarAtividade($pdo, $id, $id_usuario);
 
     // Redireciona para a página inicial
     header('Location: index.php');
@@ -79,6 +81,7 @@ if (isset($_POST['id'])) {
         <form method="POST" action="atualizar.php"  class="post-form">
             <h2>EDITAR ATIVIDADE</h2>
             <input type="text" class="hidden" name="id" value="<?=$atividade['id'];?>">
+            <input type="text" class="hidden" name="id_usuario" value="<?=$atividade['id_usuario'];?>">
                 <div class="input-div">
                     <label for="nome" class="label-dash">Nome</label>
                     <input type="text" name="nome" id="nome" value="<?= $atividade['nome'];?>">
@@ -89,12 +92,14 @@ if (isset($_POST['id'])) {
                 </div> 
                 <div class="input-div">
                     <label for="status" class="label-dash">Status</label>
+                    <!-- 
+                     Teste de valor booleano no status   
                     <input type="text" name="status" id="status">
-                    <!--
+                    -->
                     <select id="status" name="status">
                         <option value="<?=$status_texto;?>"><?= $status_texto;?></option>
                     </select>
-                    -->
+                    
                 </div> 
                 <div class="input-div">
                     <label for="data_atividade" class="label-dash">Data</label>

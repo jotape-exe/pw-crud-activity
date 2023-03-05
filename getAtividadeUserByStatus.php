@@ -16,7 +16,7 @@ function getAtividadeUserByStatus($user_id, $status) {
         // adicionar cada atividade ao array
         $status_texto = '';
         if ($row['status'] == 1) {
-            $status_texto = 'Concluído';
+            $status_texto = 'Realizado';
         } else {
             $status_texto = 'Pendente';
         }
